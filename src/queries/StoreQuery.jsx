@@ -21,7 +21,12 @@ import {
     getBannersById,
     getBanners,
     getUsers,
-    editUsers
+    editUsers,
+    addNotifications,
+    editNotifications,
+    getNotificationById,
+    deleteNotification,
+    getNotification
 } from "./storeUrls";
 
 const useGetBlogs = (data) => {
@@ -32,6 +37,7 @@ const useGetBlogs = (data) => {
     });
 };
 
+
 const useGetBlogsById = (data) => {
     return useQuery(["get_blogs", data], () => getBlogsById(data), {
         staleTime: 3000,
@@ -39,6 +45,7 @@ const useGetBlogsById = (data) => {
         // refetchOnWindowFocus: false,
     });
 };
+
 
 const useAddBlogs = () => {
     const queryClient = useQueryClient();
@@ -68,6 +75,7 @@ const useEditBlogs = () => {
     });
 };
 
+
 const useDeleteBlogs = () => {
     const queryClient = useQueryClient();
 
@@ -81,6 +89,7 @@ const useDeleteBlogs = () => {
         },
     });
 };
+
 
 const useGetTags = (data) => {
     return useQuery(["get_tags", data], () => getTags(data), {
@@ -276,6 +285,64 @@ const useGetUser = (params) => {
         },
     });
   };
+
+
+
+
+  
+const useAddNotifications = () => {
+    const queryClient = useQueryClient();
+
+    return useMutation((data) => addNotifications(data), {
+        onSuccess: (data) => {
+            queryClient.invalidateQueries("get_notification");
+            return data;
+        },
+        onError: (data) => {
+            return data;
+        },
+    });
+};
+const useEditNotification = () => {
+    const queryClient = useQueryClient();
+
+    return useMutation((data) => editNotifications(data), {
+        onSuccess: (data) => {
+            queryClient.invalidateQueries("get_notification");
+            return data;
+        },
+        onError: (data) => {
+            return data;
+        },
+    });
+};
+const useGetNotificationById = (data) => {
+    return useQuery(["get_notification", data], () => getNotificationById(data), {
+        staleTime: 3000,
+        keepPreviousData: true,
+        // refetchOnWindowFocus: false,
+    });
+};
+const useDeleteNotification = () => {
+    const queryClient = useQueryClient();
+
+    return useMutation((data) => deleteNotification(data), {
+        onSuccess: (data) => {
+            queryClient.invalidateQueries("get_notification");
+            return data;
+        },
+        onError: (data) => {
+            return data;
+        },
+    });
+};
+const useGetNotification = (data) => {
+    return useQuery(["get_notification", data], () => getNotification(data), {
+        staleTime: 3000,
+        keepPreviousData: true,
+        // refetchOnWindowFocus: false,
+    });
+};
 export {
     useGetTags,
     useGetTagsById,
@@ -298,5 +365,10 @@ export {
     useEditBanners,
     useDeleteBanners,
     useGetUser, 
-    useUpdateUserStatus
+    useUpdateUserStatus,
+    useAddNotifications,
+    useEditNotification,
+    useGetNotificationById,
+    useDeleteNotification,
+    useGetNotification
 };

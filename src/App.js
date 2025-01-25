@@ -16,7 +16,7 @@ import brand from "assets/images/logo-ct.png";
 import brandDark from "assets/images/logo-ct-dark.png";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
-import Footer from "examples/Footer";
+// import Footer from "examples/Footer";
 import "assets/css/nucleo-icons.css";
 import "assets/css/nucleo-svg.css";
 import "assets/css/style.css";
@@ -28,8 +28,8 @@ import EditOrder from "pages/Orders/EditOrder";
 import Login from "pages/Auth";
 import AddBanner from "pages/Banner/AddBanner";
 import AddBlog from "pages/Blogs/AddBlog";
-import EditBanner from "pages/Banner/EditBanner";
 import EditBlog from "pages/Blogs/EditBlog";
+import EditBanner from "pages/Banner/EditBanner";
 import AddCoupon from "pages/Coupon/AddCoupon";
 import EditCoupon from "pages/Coupon/EditCoupon";
 import VariantProduct from "pages/Products/VariantProduct";
@@ -37,6 +37,9 @@ import AddSection from "pages/Sections/AddSection";
 import EditSection from "pages/Sections/EditSection";
 import AddTag from "pages/Tags/AddTag";
 import EditTag from "pages/Tags/EditTag";
+
+import AddNotification from "pages/Notification/AddNotification";
+import EditNotification from "pages/Notification/EditNotification";
 
 export default function App() {
   const [controller, dispatch] = useController();
@@ -129,9 +132,11 @@ export default function App() {
                 <Route path="/coupon/editCoupon/:id" element={<EditCoupon />} />
                 <Route path="/blogs/addBlog" element={<AddBlog />} />
                 <Route path="/blogs/editBlog/:id" element={<EditBlog />} />
+                <Route path="/notification/addNotification" element={<AddNotification />} /> 
+                <Route path="/notification/editNotification/:id" element={<EditNotification />} />
                 <Route path="*" element={<Navigate to="/orders" />} />
               </Routes>
-              <Footer />
+              {/* <Footer /> */}
             </DashboardLayout>
           </>}
       </ThemeProvider>
@@ -169,9 +174,12 @@ export default function App() {
               <Route path="/coupon/editCoupon/:id" element={<EditCoupon />} />
               <Route path="/blogs/addBlog" element={<AddBlog />} />
               <Route path="/blogs/editBlog/:id" element={<EditBlog />} />
+              <Route path="/notification/addNotification" element={<AddNotification />} /> 
+                <Route path="/notification/editNotification/:id" element={<EditNotification />} />
               <Route path="*" element={<Navigate to="/orders" />} />
+
             </Routes>
-            <Footer />
+            {/* <Footer /> */}
           </DashboardLayout>
         </>
       }

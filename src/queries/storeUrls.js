@@ -21,6 +21,18 @@ const deleteBanners = async (data) => request(`/banners/${data?._id}`, 'DELETE',
 const getBanners = async (data) => request(`/banners?page=${data?.pageNo}&perpageitems=${data?.pageCount}`, 'GET', data)
 const getBannersById = async (data) => request(`/banners/${data?.id}`, 'GET', data)
 
+const addNotifications = async (data) => request(`/notification`, 'POST', data)
+const editNotifications = async (data) => request(`/notification`, 'PATCH', data)
+const getNotificationById = async (data) => request(`/notification/${data?.id}`, 'GET', data)
+const deleteNotification = async (data) => request(`/notification/${data?._id}`, 'DELETE', data)
+// const getNotification = async (data) => request(`/notification/${data?.id}`, 'GET', data)
+const getNotification = async (data) => request(`/notification?page=${data?.pageNo}&perpageitems=${data?.pageCount}`, 'GET', data)
+
+
+
+
+
+
 const editUsers = async ({ userId, newStatus }) => request('/user/update-status', 'PUT', {userId, newStatus})
     
 const getUsers = async ({ page, perPage, sortBy, order, search }) => {
@@ -58,5 +70,10 @@ export {
     getBanners,
     getBannersById,
     getUsers,
-    editUsers
+    editUsers,
+    addNotifications,
+    editNotifications,
+    getNotificationById,
+    deleteNotification,
+    getNotification
   };

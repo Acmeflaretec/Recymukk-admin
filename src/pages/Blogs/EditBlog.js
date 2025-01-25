@@ -7,7 +7,7 @@ import { useEditBlogs } from "queries/StoreQuery";
 import { useNavigate, useParams } from "react-router-dom";
 import { useGetBlogsById } from "queries/StoreQuery";
 import { useDeleteBlogs } from "queries/StoreQuery";
-import TextEditor from "./TextEditor";
+// import TextEditor from "./TextEditor";
 
 const EditBlog = () => {
    const { id } = useParams();
@@ -147,8 +147,19 @@ const EditBlog = () => {
                   </ToggleButton>
                </Grid>
 
-               <Grid item xs={12} mb={12}>
+               {/* <Grid item xs={12} mb={12}>
                   <TextEditor value={data?.description || ''} onChange={handleChange} />
+               </Grid> */}
+               <Grid item xs={12}>
+                  <Input
+                     id="description"
+                     placeholder="Description"
+                     name="description"
+                     value={data?.description || ''}
+                     onChange={handleChange}
+                     multiline
+                     rows={5}
+                  />
                </Grid>
 
                <Grid item xs={12} >

@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import Input from "components/Input";
 import { useAddBlogs } from "queries/StoreQuery";
 import { useNavigate } from "react-router-dom";
-import TextEditor from "./TextEditor";
+// import TextEditor from "./TextEditor";
 
 const AddBlog = () => {
    const [data, setData] = useState({})
@@ -127,8 +127,19 @@ const AddBlog = () => {
                   </ToggleButton>
                </Grid>
 
-               <Grid item xs={12} mb={12}>
+               {/* <Grid item xs={12} mb={12}>
                   <TextEditor value={data?.description || ''} onChange={handleChange} />
+               </Grid> */}
+               <Grid item xs={12}>
+                  <Input
+                     id="description"
+                     placeholder="Description"
+                     name="description"
+                     value={data?.description || ''}
+                     onChange={handleChange}
+                     multiline
+                     rows={5}
+                  />
                </Grid>
 
                <Grid item xs={12} >

@@ -12,6 +12,7 @@ import Profile from "layouts/profile";
 import Box from "components/Box";
 import Sections from "pages/Sections";
 import Blogs from "pages/Blogs";
+import Notification from "pages/Notification";
 
 const routes = [
   // {
@@ -94,14 +95,14 @@ const routes = [
     icon: <Box component="i" color="primary" fontSize="14px" className="ni ni-album-2" />,
     component: <Blogs />,
   },
-  // {
-  //   type: "route",
-  //   name: "Billing",
-  //   key: "billing",
-  //   route: "/billing",
-  //   icon: <Box component="i" color="success" fontSize="14px" className="ni ni-credit-card" />,
-  //   component: <Billing />,
-  // },
+  {
+    type: "route",
+    name: "Notification",
+    key: "notification",
+    route: "/notification",
+    icon: <Box component="i" color="success" fontSize="14px" className="ni ni-credit-card" />,
+    component: <Notification />,
+  },
   { type: "title", title: "Account Pages", key: "account-pages" },
   // {
   //   type: "route",
